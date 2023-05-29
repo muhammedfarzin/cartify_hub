@@ -1,3 +1,4 @@
+import 'package:cartify_hub/presentation/constants/font_weight_constants.dart';
 import 'package:flutter/material.dart';
 
 class ScreenHome extends StatelessWidget {
@@ -9,7 +10,12 @@ class ScreenHome extends StatelessWidget {
       // App Bar
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text("Cartify Hub"),
+        title: const Text(
+          "Cartify Hub",
+          style: TextStyle(
+            fontWeight: FontWeightConstants.appBarTitle,
+          ),
+        ),
         actions: [
           IconButton.outlined(
             onPressed: () {},
