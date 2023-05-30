@@ -1,4 +1,5 @@
 import 'package:cartify_hub/presentation/constants/font_weight_constants.dart';
+import 'package:cartify_hub/presentation/home/widgets/bottom_navigation_bar_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/offer_slider.dart';
@@ -43,6 +44,10 @@ class ScreenHome extends StatelessWidget {
         ),
         // End of Offer Slider
       ),
+
+      // Bottom Navigation Bar
+      bottomNavigationBar: const BottomNavigationBarWidget(),
+      // End of Bottom Navigation Bar
     );
   }
 }
