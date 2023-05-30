@@ -1,4 +1,4 @@
-import 'package:cartify_hub/presentation/home/screen_main.dart';
+import 'package:cartify_hub/presentation/main/screen_main.dart';
 import 'package:flutter/material.dart';
 
 void main() {
