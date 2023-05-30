@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 import 'widgets/offer_slider.dart';
 
-class ScreenHome extends StatelessWidget {
-  const ScreenHome({super.key});
+class ScreenMain extends StatelessWidget {
+  const ScreenMain({super.key});
 
   @override
   Widget build(BuildContext context) {
