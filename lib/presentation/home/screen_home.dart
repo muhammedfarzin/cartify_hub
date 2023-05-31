@@ -8,10 +8,12 @@ class ScreenHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: const [
+        // Offer Slider
         Padding(
           padding: EdgeInsets.symmetric(vertical: 10.0),
           child: OfferSlider(),
         ),
+        // End of Offer Slider
       ],
     );
   }

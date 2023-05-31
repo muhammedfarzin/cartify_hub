@@ -61,12 +61,11 @@ class _ScreenMainState extends State<ScreenMain> {
         // End of App Bar
 
         body: SafeArea(
-          // Offer Slider
+          // Screens
           child: IndexedStack(
             index: _currentIndex,
             children: _screens,
           ),
-          // End of Offer Slider
         ),
 
         // Bottom Navigation Bar
