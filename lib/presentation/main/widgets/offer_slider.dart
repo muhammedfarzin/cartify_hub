@@ -25,6 +25,13 @@ class OfferSlider extends StatelessWidget {
             return Container(
               width: MediaQuery.of(context).size.width,
               margin: const EdgeInsets.symmetric(horizontal: 5),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.blueGrey.shade100,
+                  width: 0.5,
+                ),
+                borderRadius: BorderRadius.circular(11),
+              ),
 
               // Image View
               child: ClipRRect(
