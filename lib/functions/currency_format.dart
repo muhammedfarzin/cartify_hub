@@ -13,4 +13,13 @@ class CurrencyFormat {
 
     return formattedValue;
   }
+
+  static int getPercentage({
+    required double originalPrice,
+    required double offerPrice,
+  }) {
+    double discount = originalPrice - offerPrice;
+    double offerPercentage = (discount / originalPrice) * 100;
+    return offerPercentage.floor();
+  }
 }
