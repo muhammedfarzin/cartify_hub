@@ -38,6 +38,27 @@ class ScreenHome extends StatelessWidget {
           ),
         ),
         // End of Top Listing
+
+        // Recommended Listing
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Recommended",
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+
+              // Grid View
+              GridViewListingWidget(
+                items: DummyData.topListingList,
+              )
+              // End of Grid View
+            ],
+          ),
+        ),
+        // End of Recommended Listing
       ],
     );
   }
