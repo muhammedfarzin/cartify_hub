@@ -1,5 +1,7 @@
 import 'package:cartify_hub/functions/currency_format.dart';
 import 'package:cartify_hub/presentation/constants/widget_constants.dart';
+import 'package:cartify_hub/presentation/widgets/outlined_box_with_text.dart';
+import 'package:cartify_hub/presentation/widgets/rounded_box_with_text.dart';
 import 'package:flutter/material.dart';
 
 class GridViewListingWidget extends StatelessWidget {
@@ -39,9 +41,20 @@ class GridViewListingWidget extends StatelessWidget {
         if (selectedItemCount == index + 1 &&
             itemCount < items.length &&
             rowCount != null) {
+          // Show More Element
           return const Card(
-            child: Text("Show More"),
+            child: Center(
+              child: Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Center(
+                  child: OutlinedBoxWithText(
+                    text: "Show More",
+                  ),
+                ),
+              ),
+            ),
           );
+          // End of Show More Element
         } else {
           return LayoutBuilder(
             builder: (context, constraints) {
@@ -96,21 +109,9 @@ class GridViewListingWidget extends StatelessWidget {
                       Positioned(
                         top: maxWidth - 40,
                         right: 0,
-                        child: Container(
-                          padding: const EdgeInsets.all(3),
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            color: Theme.of(context).colorScheme.primary,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Text(
-                            "${CurrencyFormat.getPercentage(originalPrice: item.price, offerPrice: item.offerRate)}% off",
-                            style: const TextStyle(
-                              fontSize: 15,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
+                        child: RoundedBoxWithText(
+                            text:
+                                "${CurrencyFormat.getPercentage(originalPrice: item.price, offerPrice: item.offerRate)}% off"),
                       ),
                       // End of Discount Rate
                     ],
