@@ -60,9 +60,20 @@ class DummyData {
           'boAt Airdopes 170 TWS Earbuds with 50H Playtime, Quad Mics ENx™ Tech, Low Latency Mode, 13mm Drivers, ASAP™ Charge, IPX4, IWP™, Touch Controls & BT v5.3(Classic Black)',
       description:
           "Phasellus ut magna sed lacus lobortis condimentum a vel lorem. Maecenas et mauris eu massa tristique commodo tempus vel libero. Vivamus eu erat eget massa porttitor sodales. Suspendisse a iaculis risus. Sed hendrerit, metus at viverra maximus, ante massa pretium diam, sodales euismod massa nisi id nibh. Fusce gravida mauris quam, quis hendrerit enim convallis consectetur. Praesent ac ultrices quam. Morbi a orci vitae nunc iaculis luctus suscipit ullamcorper mauris. Nulla nec nisl quis elit finibus egestas et eget justo. Cras scelerisque nisi vitae lectus accumsan accumsan. Vivamus nibh dolor, tincidunt et nibh at, imperdiet mattis metus. Sed id elit sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. In sapien magna, tempor in commodo ac, luctus eget nunc. Cras semper elit fringilla molestie maximus. Suspendisse varius tellus vitae leo rhoncus varius.",
-      price: 4499,
-      offerRate: 1338,
+      price: 4499.659,
+      offerRate: 1338.76,
       deliveryCharge: 0,
+    ),
+    Product(
+      imageUrl:
+          'https://m.media-amazon.com/images/I/41TiopG4SeL._SX300_SY300_QL70_FMwebp_.jpg',
+      title:
+          'boAt Xtend/Xtend RTL Smartwatch with Alexa Built-in, 1.69” HD Display, Multiple Watch Faces, Stress Monitor, Heart & SpO2 Monitoring, 14 Sports Modes, 5 ATM & 7 Days Battery(Sandy Cream)',
+      description:
+          "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.",
+      price: 7000,
+      offerRate: 2799,
+      deliveryCharge: 49,
     ),
   ];
 }
