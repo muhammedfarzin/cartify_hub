@@ -19,7 +19,6 @@ class GridViewListingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // bool showMore = false;
     final screenWidth = MediaQuery.of(context).size.width;
     final columnCount = screenWidth ~/ width;
     final itemCount = columnCount * (rowCount ?? 2);
