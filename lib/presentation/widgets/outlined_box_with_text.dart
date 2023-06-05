@@ -5,12 +5,14 @@ class OutlinedBoxWithText extends StatelessWidget {
   final Color? textColor;
   final Color? borderColor;
   final Color? backgroundColor;
+  final double? textSize;
   const OutlinedBoxWithText({
     super.key,
     required this.text,
     this.textColor,
     this.borderColor,
     this.backgroundColor,
+    this.textSize,
   });
 
   @override
@@ -18,7 +20,7 @@ class OutlinedBoxWithText extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(3),
       decoration: BoxDecoration(
-        color: backgroundColor ?? Theme.of(context).colorScheme.background,
+        color: backgroundColor ?? Colors.white,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Container(
@@ -32,6 +34,7 @@ class OutlinedBoxWithText extends StatelessWidget {
           text,
           style: TextStyle(
             color: textColor ?? Theme.of(context).colorScheme.primary,
+            fontSize: textSize,
           ),
         ),
       ),
