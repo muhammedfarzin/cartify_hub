@@ -16,32 +16,44 @@ class ScreenCategory extends StatelessWidget {
           childAspectRatio: 1,
         ),
         itemBuilder: (context, index) {
-          return Card(
-            child: Padding(
-              padding: const EdgeInsets.all(2.0),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Stack(
-                  children: [
-                    Container(
+          return Container(
+            margin: const EdgeInsets.all(5),
+            decoration: BoxDecoration(
+              color:
+                  Theme.of(context).colorScheme.inversePrimary.withOpacity(0.1),
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(
+                width: 1,
+                color: Theme.of(context).colorScheme.primary,
+              ),
+            ),
+            child: Stack(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(2.0),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Container(
                       color: Colors.white,
                       child: Image.network(
                         "https://image01.realme.net/general/20230512/1683873789325.png.webp?width=1440&height=1440&size=656747",
                         fit: BoxFit.contain,
                       ),
                     ),
-                    const Positioned(
-                      bottom: 0,
-                      right: 0,
-                      child: RoundedBoxWithText(
-                        text: "SmartPhones",
-                        borderRadius:
-                            BorderRadius.only(topLeft: Radius.circular(10)),
-                      ),
-                    )
-                  ],
+                  ),
                 ),
-              ),
+                const Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: RoundedBoxWithText(
+                    text: "SmartPhones",
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      bottomRight: Radius.circular(8),
+                    ),
+                  ),
+                ),
+              ],
             ),
           );
         },

@@ -93,7 +93,19 @@ class ScreenAccount extends StatelessWidget {
                   childAspectRatio: 3,
                 ),
                 itemBuilder: (context, index) {
-                  return Card(
+                  return Container(
+                    margin: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      color: Theme.of(context)
+                          .colorScheme
+                          .inversePrimary
+                          .withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        width: 0.5,
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                    ),
                     child: Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: Row(
