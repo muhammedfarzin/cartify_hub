@@ -1,3 +1,6 @@
+import 'package:cartify_hub/presentation/cart/widgets/cart_list_item_widget.dart';
+import 'package:cartify_hub/presentation/constants/dummy_data.dart';
+import 'package:cartify_hub/presentation/constants/widget_constants.dart';
 import 'package:flutter/material.dart';
 
 class ScreenCart extends StatelessWidget {
@@ -43,6 +46,20 @@ class ScreenCart extends StatelessWidget {
                 ),
               ),
               // End of Address Section
+
+              WidgetConstants.height5,
+
+              // Cart List
+              ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: DummyData.topListingList.length,
+                itemBuilder: (context, index) {
+                  final item = DummyData.topListingList[index];
+                  return CartListItemWidget(item: item);
+                },
+              )
+              // End of Cart List
             ],
           ),
         ),
