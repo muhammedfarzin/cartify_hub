@@ -5,10 +5,47 @@ class ScreenCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Column(
       children: [
         // Top Section (ListView)
-        Expanded(child: ListView()),
+        Expanded(
+          child: ListView(
+            children: [
+              // Address Section
+              Container(
+                padding: const EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                    color: colorScheme.inversePrimary.withOpacity(0.2),
+                    border: Border.all(
+                      color: colorScheme.inversePrimary,
+                    ),
+                    borderRadius: const BorderRadius.only(
+                      bottomRight: Radius.circular(50),
+                    )),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Deliver to this address",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        color: colorScheme.primary,
+                      ),
+                    ),
+                    const Text(
+                      "4567 Green Avenue Mumbai, Maharashtra - 400001",
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    )
+                  ],
+                ),
+              ),
+              // End of Address Section
+            ],
+          ),
+        ),
         // End of Top Section (ListView)
 
         // Bottom Section
