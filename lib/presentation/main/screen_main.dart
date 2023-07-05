@@ -1,7 +1,6 @@
 import 'package:cartify_hub/presentation/account/screen_account.dart';
 import 'package:cartify_hub/presentation/cart/screen_cart.dart';
 import 'package:cartify_hub/presentation/category/screen_category.dart';
-import 'package:cartify_hub/presentation/constants/font_weight_constants.dart';
 import 'package:cartify_hub/presentation/home/screen_home.dart';
 import 'package:flutter/material.dart';
 
@@ -40,7 +39,7 @@ class _ScreenMainState extends State<ScreenMain> {
           title: const Text(
             "Cartify Hub",
             style: TextStyle(
-              fontWeight: FontWeightConstants.appBarTitle,
+              fontWeight: FontWeight.w500,
             ),
           ),
           actions: [
