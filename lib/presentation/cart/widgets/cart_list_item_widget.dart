@@ -54,7 +54,7 @@ class CartListItemWidget extends StatelessWidget {
               // Product Count
               const SizedBox(
                 width: 100,
-                child: CounterWidget(),
+                child: CounterWidget(isRemoveAtZero: true),
               ),
               // End of Product Count
             ],

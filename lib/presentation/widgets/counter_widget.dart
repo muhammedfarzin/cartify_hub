@@ -1,17 +1,23 @@
-
 import 'package:cartify_hub/presentation/widgets/box_icon_button.dart';
 import 'package:flutter/material.dart';
 
-class CounterWidget extends StatelessWidget {
+class CounterWidget extends StatefulWidget {
+  final bool isRemoveAtZero;
   const CounterWidget({
     super.key,
+    this.isRemoveAtZero = false,
   });
+
+  @override
+  State<CounterWidget> createState() => _CounterWidgetState();
+}
+
+class _CounterWidgetState extends State<CounterWidget> {
+  int count = 1;
 
   @override
   Widget build(BuildContext context) {
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
-
-    final ValueNotifier<int> count = ValueNotifier(1);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 3.0),
@@ -20,9 +26,19 @@ class CounterWidget extends StatelessWidget {
           Flexible(
             child: BoxIconButton(
               onPressed: () {
-                count.value--;
+                setState(() {
+                  if (widget.isRemoveAtZero) {
+                    if (count > 1) {
+                      count--;
+                    }
+                  } else {
+                    count--;
+                  }
+                });
               },
-              icon: Icons.remove_rounded,
+              icon: widget.isRemoveAtZero && count <= 1
+                  ? Icons.delete
+                  : Icons.remove_rounded,
             ),
           ),
           Flexible(
@@ -38,19 +54,16 @@ class CounterWidget extends StatelessWidget {
                       width: 0.5,
                     ),
                     borderRadius: BorderRadius.circular(5)),
-                child: ValueListenableBuilder(
-                  valueListenable: count,
-                  builder: (context, value, child) {
-                    return Text("$value");
-                  },
-                ),
+                child: Text("$count"),
               ),
             ),
           ),
           Flexible(
             child: BoxIconButton(
               onPressed: () {
-                count.value++;
+                setState(() {
+                  count++;
+                });
               },
               icon: Icons.add_rounded,
             ),
