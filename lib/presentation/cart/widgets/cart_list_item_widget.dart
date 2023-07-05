@@ -30,6 +30,7 @@ class CartListItemWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Left Section
           Column(
