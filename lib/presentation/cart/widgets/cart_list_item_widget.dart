@@ -1,3 +1,5 @@
+import 'package:cartify_hub/functions/currency_format.dart';
+import 'package:cartify_hub/presentation/constants/widget_constants.dart';
 import 'package:cartify_hub/presentation/widgets/counter_widget.dart';
 import 'package:cartify_hub/presentation/widgets/grid_view_listing_widget.dart';
 import 'package:flutter/material.dart';
@@ -57,6 +59,68 @@ class CartListItemWidget extends StatelessWidget {
             ],
           ),
           // End of Left Section
+
+          WidgetConstants.width10,
+
+          // Right Section
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Item Title
+                Text(
+                  item.title,
+                  style: Theme.of(context).textTheme.titleMedium,
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                ),
+
+                // Price Details
+                Row(
+                  children: [
+                    // Actual Price
+                    Text(
+                      CurrencyFormat.formatCurrency(item.price),
+                      style: TextStyle(
+                        fontSize: 12,
+                        decoration: TextDecoration.lineThrough,
+                        color: Colors.grey.shade700,
+                        decorationColor: Colors.grey.shade700,
+                      ),
+                    ),
+                    WidgetConstants.width5,
+
+                    // Offer Price
+                    Text(
+                      CurrencyFormat.formatCurrency(item.offerRate),
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleMedium
+                          ?.copyWith(color: colorScheme.primary),
+                    ),
+                    WidgetConstants.width10,
+
+                    // Discount Percentage
+                    Container(
+                      padding: const EdgeInsets.all(2),
+                      // Border
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                              width: 0.5, color: colorScheme.primary),
+                          borderRadius: BorderRadius.circular(5)),
+                      child: Text(
+                        "${CurrencyFormat.getPercentage(originalPrice: item.price, offerPrice: item.offerRate)}% OFF",
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleSmall
+                            ?.copyWith(color: colorScheme.primary),
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
+          )
         ],
       ),
     );
