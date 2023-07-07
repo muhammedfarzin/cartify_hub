@@ -129,8 +129,11 @@ class CartListItemWidget extends StatelessWidget {
                       color: colorScheme.primary,
                       size: 20,
                     ),
+                    WidgetConstants.width5,
                     Text(
-                      "Free Shipping",
+                      item.deliveryCharge == 0
+                          ? "Free Shipping"
+                          : "+${CurrencyFormat.formatCurrency(item.deliveryCharge)} Shipping Fee",
                       style: TextStyle(color: colorScheme.primary),
                     ),
                   ],
