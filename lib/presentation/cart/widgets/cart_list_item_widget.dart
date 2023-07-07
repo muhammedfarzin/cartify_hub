@@ -118,7 +118,24 @@ class CartListItemWidget extends StatelessWidget {
                       ),
                     )
                   ],
+                ),
+                // End of Price Details
+
+                // Shipping Fee
+                Row(
+                  children: [
+                    Icon(
+                      Icons.local_shipping,
+                      color: colorScheme.primary,
+                      size: 20,
+                    ),
+                    Text(
+                      "Free Shipping",
+                      style: TextStyle(color: colorScheme.primary),
+                    ),
+                  ],
                 )
+                // End of Shipping Fee
               ],
             ),
           )
