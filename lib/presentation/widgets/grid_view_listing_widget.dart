@@ -1,4 +1,5 @@
 import 'package:cartify_hub/functions/currency_format.dart';
+import 'package:cartify_hub/presentation/constants/dummy_data.dart';
 import 'package:cartify_hub/presentation/constants/widget_constants.dart';
 import 'package:cartify_hub/presentation/widgets/outlined_box_with_text.dart';
 import 'package:cartify_hub/presentation/widgets/rounded_box_with_text.dart';
@@ -123,22 +124,4 @@ class GridViewListingWidget extends StatelessWidget {
       },
     );
   }
-}
-
-class Product {
-  final String imageUrl;
-  final String title;
-  final String description;
-  final double price;
-  final double offerRate;
-  final double deliveryCharge;
-
-  Product({
-    required this.imageUrl,
-    required this.title,
-    required this.description,
-    required this.price,
-    required this.offerRate,
-    required this.deliveryCharge,
-  });
 }

@@ -1,7 +1,7 @@
 import 'package:cartify_hub/functions/currency_format.dart';
+import 'package:cartify_hub/presentation/constants/dummy_data.dart';
 import 'package:cartify_hub/presentation/constants/widget_constants.dart';
 import 'package:cartify_hub/presentation/widgets/counter_widget.dart';
-import 'package:cartify_hub/presentation/widgets/grid_view_listing_widget.dart';
 import 'package:flutter/material.dart';
 
 class CartListItemWidget extends StatelessWidget {
