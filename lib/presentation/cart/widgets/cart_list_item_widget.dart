@@ -137,8 +137,25 @@ class CartListItemWidget extends StatelessWidget {
                       style: TextStyle(color: colorScheme.primary),
                     ),
                   ],
-                )
+                ),
                 // End of Shipping Fee
+                // Variants
+                Column(
+                  children: item.varient == null
+                      ? []
+                      : item.varient!.entries.map((variants) {
+                          return Row(
+                            children: [
+                              Text(
+                                "${variants.key}:",
+                                style: Theme.of(context).textTheme.titleSmall,
+                              ),
+                              WidgetConstants.width5,
+                              Text(variants.value),
+                            ],
+                          );
+                        }).toList(),
+                ),
               ],
             ),
           )
