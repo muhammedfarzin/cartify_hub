@@ -1,3 +1,5 @@
+import 'package:cartify_hub/presentation/constants/dummy_data.dart';
+import 'package:cartify_hub/presentation/widgets/grid_view_listing_widget.dart';
 import 'package:flutter/material.dart';
 
 class ScreenFavorite extends StatelessWidget {
@@ -23,8 +25,16 @@ class ScreenFavorite extends StatelessWidget {
       ),
 
       // End of AppBar
-      body: const Center(
-        child: Text("Screen favourite"),
+      body: ListView(
+        padding: const EdgeInsets.symmetric(horizontal: 5),
+        children: [
+          GridViewListingWidget(
+            items: DummyData.topListingList,
+            width: 150,
+            showFavorite: true,
+            isHome: false,
+          ),
+        ],
       ),
     );
   }
