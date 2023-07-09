@@ -1,6 +1,7 @@
 import 'package:cartify_hub/presentation/account/screen_account.dart';
 import 'package:cartify_hub/presentation/cart/screen_cart.dart';
 import 'package:cartify_hub/presentation/category/screen_category.dart';
+import 'package:cartify_hub/presentation/favorite/screen_favorite.dart';
 import 'package:cartify_hub/presentation/home/screen_home.dart';
 import 'package:flutter/material.dart';
 
@@ -43,14 +44,25 @@ class _ScreenMainState extends State<ScreenMain> {
             ),
           ),
           actions: [
+            // Search Button
             IconButton.outlined(
               onPressed: () {},
               icon: const Icon(Icons.search),
             ),
+
+            // Favorite Button
             IconButton.outlined(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ScreenFavorite(),
+                    ));
+              },
               icon: const Icon(Icons.favorite),
             ),
+
+            // More Button
             IconButton.outlined(
               onPressed: () {},
               icon: const Icon(Icons.more_vert),
