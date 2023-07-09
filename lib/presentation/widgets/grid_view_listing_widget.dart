@@ -78,7 +78,7 @@ class GridViewListingWidget extends StatelessWidget {
                             child: AspectRatio(
                               aspectRatio: 1,
                               child: Container(
-                                color: Theme.of(context).colorScheme.background,
+                                color: Colors.white,
                                 padding: const EdgeInsets.all(5),
                                 child: Image(
                                   image: NetworkImage(item.imageUrl),
