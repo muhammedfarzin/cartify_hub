@@ -10,12 +10,16 @@ class GridViewListingWidget extends StatelessWidget {
   final double width;
   final double childAspectRatio;
   final int? rowCount;
+  final bool showFavorite;
+  final bool isHome;
   const GridViewListingWidget({
     super.key,
     required this.items,
     this.width = 130,
     this.childAspectRatio = 1 / 1.55,
     this.rowCount,
+    this.showFavorite = false,
+    this.isHome = true,
   });
 
   @override
@@ -26,6 +30,7 @@ class GridViewListingWidget extends StatelessWidget {
     final selectedItemCount = (itemCount < items.length && rowCount != null)
         ? itemCount
         : items.length;
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return GridView.builder(
       itemCount: selectedItemCount,
@@ -38,9 +43,9 @@ class GridViewListingWidget extends StatelessWidget {
       itemBuilder: (context, index) {
         final item = items[index];
         // Checking Show more or not
-        if (selectedItemCount == index + 1 &&
-            itemCount < items.length &&
-            rowCount != null) {
+        if (rowCount != null &&
+            selectedItemCount == index + 1 &&
+            itemCount < items.length) {
           // Show More Element
           return const Card(
             child: Center(
@@ -94,16 +99,91 @@ class GridViewListingWidget extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                           ),
 
-                          // Price
-                          Text(
-                            CurrencyFormat.formatCurrency(item.offerRate),
-                            style: const TextStyle(
-                              fontWeight: FontWeight.w500,
+                          // Price Details
+                          if (isHome == true)
+                            Text(
+                              CurrencyFormat.formatCurrency(item.offerRate),
+                              style: const TextStyle(
+                                fontWeight: FontWeight.w500,
+                              ),
+                            )
+                          else
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    // Actual Price
+                                    Text(
+                                      CurrencyFormat.formatCurrency(item.price),
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        decoration: TextDecoration.lineThrough,
+                                        color: Colors.grey.shade700,
+                                        decorationColor: Colors.grey.shade700,
+                                      ),
+                                    ),
+                                    WidgetConstants.width5,
+
+                                    // Offer Price
+                                    Text(
+                                      CurrencyFormat.formatCurrency(
+                                          item.offerRate),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleMedium
+                                          ?.copyWith(
+                                              color: colorScheme.primary),
+                                    ),
+                                    WidgetConstants.width10,
+                                  ],
+                                ),
+
+                                // Shipping
+                                item.deliveryCharge == 0
+                                    ? Row(
+                                        children: [
+                                          Icon(
+                                            Icons.local_shipping,
+                                            color: colorScheme.primary,
+                                            size: 20,
+                                          ),
+                                          WidgetConstants.width5,
+                                          Text(
+                                            item.deliveryCharge == 0
+                                                ? "Free Shipping"
+                                                : "+${CurrencyFormat.formatCurrency(item.deliveryCharge)} Shipping Fee",
+                                            style: TextStyle(
+                                                color: colorScheme.primary),
+                                          ),
+                                        ],
+                                      )
+                                    : Text(
+                                        "+${item.deliveryCharge.floor()} Shipping fee",
+                                        style: const TextStyle(fontSize: 12),
+                                      ),
+                              ],
                             ),
-                          ),
+                          // End of Price Details
                           // End of Product Details
                         ],
                       ),
+
+                      // Favorite Button
+                      if (showFavorite == true)
+                        Positioned(
+                          top: 0,
+                          right: 0,
+                          child: IconButton.outlined(
+                              color: colorScheme.primary,
+                              style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          colorScheme.background)),
+                              onPressed: () {},
+                              icon: const Icon(Icons.favorite)),
+                        ),
+                      // End of Favorite Button
 
                       // Discount Rate
                       Positioned(
