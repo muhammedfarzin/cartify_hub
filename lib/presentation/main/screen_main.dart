@@ -3,6 +3,7 @@ import 'package:cartify_hub/presentation/cart/screen_cart.dart';
 import 'package:cartify_hub/presentation/category/screen_category.dart';
 import 'package:cartify_hub/presentation/favorite/screen_favorite.dart';
 import 'package:cartify_hub/presentation/home/screen_home.dart';
+import 'package:cartify_hub/presentation/search/screen_search.dart';
 import 'package:flutter/material.dart';
 
 class ScreenMain extends StatefulWidget {
@@ -45,9 +46,18 @@ class _ScreenMainState extends State<ScreenMain> {
           ),
           actions: [
             // Search Button
-            IconButton.outlined(
-              onPressed: () {},
-              icon: const Icon(Icons.search),
+            Hero(
+              tag: "SearchButtonToBox",
+              child: IconButton.outlined(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ScreenSearch(),
+                      ));
+                },
+                icon: const Icon(Icons.search),
+              ),
             ),
 
             // Favorite Button
