@@ -13,10 +13,13 @@ class ScreenFavorite extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text("Favorite"),
         actions: [
+          // Search Button
           IconButton.outlined(
             onPressed: () {},
             icon: const Icon(Icons.search),
           ),
+
+          // More Button
           IconButton.outlined(
             onPressed: () {},
             icon: const Icon(Icons.more_vert),
