@@ -1,4 +1,3 @@
-
 import 'package:cartify_hub/functions/currency_format.dart';
 import 'package:cartify_hub/presentation/constants/widget_constants.dart';
 import 'package:flutter/material.dart';
@@ -8,10 +7,12 @@ class PriceDiscountWidget extends StatelessWidget {
     super.key,
     required this.price,
     required this.offerRate,
+    this.showPercentage = true,
   });
 
   final double price;
   final double offerRate;
+  final bool showPercentage;
 
   @override
   Widget build(BuildContext context) {
@@ -41,20 +42,21 @@ class PriceDiscountWidget extends StatelessWidget {
         WidgetConstants.width10,
 
         // Discount Percentage
-        Container(
-          padding: const EdgeInsets.all(2),
-          // Border
-          decoration: BoxDecoration(
-              border: Border.all(width: 0.5, color: colorScheme.primary),
-              borderRadius: BorderRadius.circular(5)),
-          child: Text(
-            "${CurrencyFormat.getPercentage(originalPrice: price, offerPrice: offerRate)}% OFF",
-            style: Theme.of(context)
-                .textTheme
-                .titleSmall
-                ?.copyWith(color: colorScheme.primary),
+        if (showPercentage)
+          Container(
+            padding: const EdgeInsets.all(2),
+            // Border
+            decoration: BoxDecoration(
+                border: Border.all(width: 0.5, color: colorScheme.primary),
+                borderRadius: BorderRadius.circular(5)),
+            child: Text(
+              "${CurrencyFormat.getPercentage(originalPrice: price, offerPrice: offerRate)}% OFF",
+              style: Theme.of(context)
+                  .textTheme
+                  .titleSmall
+                  ?.copyWith(color: colorScheme.primary),
+            ),
           ),
-        )
       ],
     );
   }
