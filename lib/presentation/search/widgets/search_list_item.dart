@@ -20,7 +20,7 @@ class SearchListItem extends StatelessWidget {
     final TextTheme textTheme = Theme.of(context).textTheme;
     final Size screenSize = MediaQuery.of(context).size;
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+      margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
       padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
         color: colorScheme.inversePrimary.withOpacity(0.1),
@@ -75,7 +75,7 @@ class SearchListItem extends StatelessWidget {
                 ),
                 // Rating
                 Row(
-                  // crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     // Rating
                     Text(
