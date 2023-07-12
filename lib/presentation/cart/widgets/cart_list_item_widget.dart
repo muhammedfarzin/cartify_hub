@@ -1,8 +1,8 @@
-import 'package:cartify_hub/functions/currency_format.dart';
 import 'package:cartify_hub/presentation/constants/dummy_data.dart';
 import 'package:cartify_hub/presentation/constants/widget_constants.dart';
 import 'package:cartify_hub/presentation/widgets/counter_widget.dart';
 import 'package:cartify_hub/presentation/widgets/price_discount_widget.dart';
+import 'package:cartify_hub/presentation/widgets/shipping_fee_widget.dart';
 import 'package:flutter/material.dart';
 
 class CartListItemWidget extends StatelessWidget {
@@ -85,22 +85,7 @@ class CartListItemWidget extends StatelessWidget {
                 // End of Price Details
 
                 // Shipping Fee
-                Row(
-                  children: [
-                    Icon(
-                      Icons.local_shipping,
-                      color: colorScheme.primary,
-                      size: 20,
-                    ),
-                    WidgetConstants.width5,
-                    Text(
-                      item.deliveryCharge == 0
-                          ? "Free Shipping"
-                          : "+${CurrencyFormat.formatCurrency(item.deliveryCharge)} Shipping Fee",
-                      style: TextStyle(color: colorScheme.primary),
-                    ),
-                  ],
-                ),
+                ShippingFeeWidget(deliveryCharge: item.deliveryCharge),
                 // End of Shipping Fee
                 // Variants
                 Column(
