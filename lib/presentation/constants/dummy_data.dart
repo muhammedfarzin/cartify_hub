@@ -8,7 +8,9 @@ class DummyData {
           "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
       price: 134000,
       offerRate: 130000,
-      deliveryCharge: 49,
+      deliveryCharge: 0,
+      starRating: 4.2,
+      starRatingCount: 63786,
     ),
     Product(
         imageUrl:
@@ -19,24 +21,27 @@ class DummyData {
         price: 157999,
         offerRate: 149999,
         deliveryCharge: 0,
+        starRating: 4.5,
+        starRatingCount: 68474,
         varient: {
           "Size": "6GB+512GB",
           "Color": "Deep Purple",
         }),
     Product(
-      imageUrl:
-          'https://image01.realme.net/general/20230512/1683873789325.png.webp?width=1440&height=1440&size=656747',
-      title: 'realme narzo N53',
-      description:
-          "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.",
-      price: 10999,
-      offerRate: 8999,
-      deliveryCharge: 49,
-      varient: {
-        "Size":"4GB+64GB",
-        "Color":"Feather Gold",
-      }
-    ),
+        imageUrl:
+            'https://image01.realme.net/general/20230512/1683873789325.png.webp?width=1440&height=1440&size=656747',
+        title: 'realme narzo N53',
+        description:
+            "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.",
+        price: 10999,
+        offerRate: 8999,
+        deliveryCharge: 49,
+        starRating: 3.5,
+        starRatingCount: 6847,
+        varient: {
+          "Size": "4GB+64GB",
+          "Color": "Feather Gold",
+        }),
     Product(
       imageUrl:
           'https://image01.realme.net/general/20230511/1683779510389.jpg.webp?width=1080&height=1080&size=468380',
@@ -46,6 +51,8 @@ class DummyData {
       price: 12999,
       offerRate: 9999,
       deliveryCharge: 0,
+      starRating: 3.1,
+      starRatingCount: 654,
     ),
     Product(
       imageUrl:
@@ -57,6 +64,8 @@ class DummyData {
       price: 7000,
       offerRate: 2799,
       deliveryCharge: 49,
+      starRating: 2.1,
+      starRatingCount: 58435,
     ),
     Product(
       imageUrl:
@@ -68,6 +77,8 @@ class DummyData {
       price: 4499.65,
       offerRate: 1338.76,
       deliveryCharge: 0,
+      starRating: 5,
+      starRatingCount: 654,
     ),
     Product(
       imageUrl:
@@ -79,6 +90,8 @@ class DummyData {
       price: 7000,
       offerRate: 2799,
       deliveryCharge: 49,
+      starRating: 3.9,
+      starRatingCount: 6354,
     ),
   ];
 }
@@ -90,6 +103,8 @@ class Product {
   final double price;
   final double offerRate;
   final double deliveryCharge;
+  final double starRating;
+  final int starRatingCount;
   final Map<String, dynamic>? varient;
 
   Product({
@@ -99,6 +114,8 @@ class Product {
     required this.price,
     required this.offerRate,
     required this.deliveryCharge,
+    required this.starRating,
+    required this.starRatingCount,
     this.varient,
   });
 }
