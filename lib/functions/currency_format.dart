@@ -22,4 +22,9 @@ class CurrencyFormat {
     double offerPercentage = (discount / originalPrice) * 100;
     return offerPercentage.floor();
   }
+
+  static String formatNumber(double number) {
+    final format = NumberFormat.compact();
+    return format.format(number);
+  }
 }
