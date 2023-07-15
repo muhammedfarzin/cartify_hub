@@ -53,7 +53,7 @@ class _ScreenMainState extends State<ScreenMain> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ScreenSearch(),
+                        builder: (context) => const ScreenSearch(),
                       ));
                 },
                 icon: const Icon(Icons.search),
