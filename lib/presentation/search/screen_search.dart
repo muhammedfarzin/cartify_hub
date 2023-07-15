@@ -1,5 +1,4 @@
-import 'package:cartify_hub/presentation/constants/dummy_data.dart';
-import 'package:cartify_hub/presentation/search/widgets/search_list_item.dart';
+import 'package:cartify_hub/presentation/constants/asset_images.dart';
 import 'package:flutter/material.dart';
 
 class ScreenSearch extends StatelessWidget {
@@ -30,6 +29,7 @@ class ScreenSearch extends StatelessWidget {
                 ),
                 child: TextFormField(
                   controller: _searchEditingController,
+                  autofocus: true,
                   decoration: InputDecoration(
                     hintText: "Search for Products",
                     filled: true,
@@ -53,11 +53,14 @@ class ScreenSearch extends StatelessWidget {
       // End of AppBar
 
       body: SafeArea(
-          child: ListView.builder(
-        itemCount: DummyData.topListingList.length,
-        itemBuilder: (context, index) {
-          return SearchListItem(item: DummyData.topListingList[index]);
-        },
+          child: Center(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            maxWidth: 300,
+            maxHeight: MediaQuery.sizeOf(context).height,
+          ),
+          child: Image.asset(AssetImages.searchProduct),
+        ),
       )),
     );
   }
