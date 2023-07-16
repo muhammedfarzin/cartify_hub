@@ -1,11 +1,19 @@
 import 'package:cartify_hub/presentation/constants/asset_images.dart';
+import 'package:cartify_hub/presentation/widgets/animated_icon_button.dart';
 import 'package:flutter/material.dart';
 
-class ScreenSearch extends StatelessWidget {
-  ScreenSearch({super.key});
+class ScreenSearch extends StatefulWidget {
+  const ScreenSearch({super.key});
 
+  @override
+  State<ScreenSearch> createState() => _ScreenSearchState();
+}
+
+class _ScreenSearchState extends State<ScreenSearch> {
   final TextEditingController _searchEditingController =
       TextEditingController();
+
+  bool showProducts = false;
 
   @override
   Widget build(BuildContext context) {
@@ -21,26 +29,38 @@ class ScreenSearch extends StatelessWidget {
             tag: "SearchButtonToBox",
             child: Material(
               color: Colors.transparent,
-              child: Container(
-                padding: const EdgeInsets.all(2.0),
-                decoration: BoxDecoration(
-                  color: colorScheme.background,
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: TextFormField(
-                  controller: _searchEditingController,
-                  autofocus: true,
-                  decoration: InputDecoration(
-                    hintText: "Search for Products",
-                    filled: true,
-                    fillColor: colorScheme.background,
-                    border: InputBorder.none,
-                    suffixIcon: IconButton(
-                      onPressed: () {
-                        _searchEditingController.clear();
-                      },
-                      icon: const Icon(
-                        Icons.clear,
+              child: AnimatedSize(
+                duration: const Duration(milliseconds: 1500),
+                curve: Curves.elasticOut,
+                child: Container(
+                  padding: const EdgeInsets.all(2.0),
+                  decoration: BoxDecoration(
+                    color: colorScheme.background,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: TextFormField(
+                    controller: _searchEditingController,
+                    autofocus: true,
+                    onFieldSubmitted: (value) {
+                      // Write Here what happens on Search submit
+                      if (_searchEditingController.text.isNotEmpty) {
+                        setState(() {
+                          showProducts = true;
+                        });
+                      }
+                    },
+                    decoration: InputDecoration(
+                      hintText: "Search for Products",
+                      filled: true,
+                      fillColor: colorScheme.background,
+                      border: InputBorder.none,
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          _searchEditingController.clear();
+                        },
+                        icon: const Icon(
+                          Icons.clear,
+                        ),
                       ),
                     ),
                   ),
@@ -48,6 +68,19 @@ class ScreenSearch extends StatelessWidget {
               ),
             ),
           ),
+          actions: [
+            if (showProducts)
+              Padding(
+                padding: const EdgeInsets.only(right: 15.0),
+                child: AnimatedIconButton(
+                  curve: Curves.elasticOut,
+                  child: IconButton.outlined(
+                    onPressed: () {},
+                    icon: const Icon(Icons.shopping_cart),
+                  ),
+                ),
+              ),
+          ],
         ),
       ),
       // End of AppBar
