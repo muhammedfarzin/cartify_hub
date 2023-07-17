@@ -1,5 +1,9 @@
 import 'package:cartify_hub/presentation/constants/asset_images.dart';
-import 'package:cartify_hub/presentation/widgets/animated_icon_button.dart';
+import 'package:cartify_hub/presentation/constants/dummy_data.dart';
+import 'package:cartify_hub/presentation/search/widgets/search_input_box.dart';
+import 'package:cartify_hub/presentation/search/widgets/search_list_item.dart';
+import 'package:cartify_hub/presentation/widgets/animated/scale_animated_widget.dart';
+import 'package:cartify_hub/presentation/widgets/animated/slide_to_left_animated_switcher.dart';
 import 'package:flutter/material.dart';
 
 class ScreenSearch extends StatefulWidget {
@@ -32,38 +36,16 @@ class _ScreenSearchState extends State<ScreenSearch> {
               child: AnimatedSize(
                 duration: const Duration(milliseconds: 1500),
                 curve: Curves.elasticOut,
-                child: Container(
-                  padding: const EdgeInsets.all(2.0),
-                  decoration: BoxDecoration(
-                    color: colorScheme.background,
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: TextFormField(
-                    controller: _searchEditingController,
-                    autofocus: true,
-                    onFieldSubmitted: (value) {
-                      // Write Here what happens on Search submit
-                      if (_searchEditingController.text.isNotEmpty) {
-                        setState(() {
-                          showProducts = true;
-                        });
-                      }
-                    },
-                    decoration: InputDecoration(
-                      hintText: "Search for Products",
-                      filled: true,
-                      fillColor: colorScheme.background,
-                      border: InputBorder.none,
-                      suffixIcon: IconButton(
-                        onPressed: () {
-                          _searchEditingController.clear();
-                        },
-                        icon: const Icon(
-                          Icons.clear,
-                        ),
-                      ),
-                    ),
-                  ),
+                child: SearchInputBox(
+                  controller: _searchEditingController,
+                  onSubmitted: (value) {
+                    // Write Here what happens on Search submit
+                    if (_searchEditingController.text.isNotEmpty) {
+                      setState(() {
+                        showProducts = true;
+                      });
+                    }
+                  },
                 ),
               ),
             ),
@@ -72,7 +54,7 @@ class _ScreenSearchState extends State<ScreenSearch> {
             if (showProducts)
               Padding(
                 padding: const EdgeInsets.only(right: 15.0),
-                child: AnimatedIconButton(
+                child: ScaleAnimatedWidget(
                   curve: Curves.elasticOut,
                   child: IconButton.outlined(
                     onPressed: () {},
@@ -86,15 +68,29 @@ class _ScreenSearchState extends State<ScreenSearch> {
       // End of AppBar
 
       body: SafeArea(
-          child: Center(
-        child: ConstrainedBox(
-          constraints: BoxConstraints(
-            maxWidth: 300,
-            maxHeight: MediaQuery.sizeOf(context).height,
+        child: SlideToLeftAnimatedSwitcher(
+          showSecondWidget: showProducts,
+          // This widget will show when screen build
+          firstWidget: Center(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                maxWidth: 300,
+                maxHeight: MediaQuery.sizeOf(context).height,
+              ),
+              child: Image.asset(AssetImages.searchProduct),
+            ),
           ),
-          child: Image.asset(AssetImages.searchProduct),
+
+          // This widget will show when search data submit
+          secondWidget: ListView.builder(
+            itemCount: DummyData.topListingList.length,
+            itemBuilder: (context, index) {
+              final Product item = DummyData.topListingList[index];
+              return SearchListItem(item: item);
+            },
+          ),
         ),
-      )),
+      ),
     );
   }
 }
