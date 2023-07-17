@@ -47,7 +47,7 @@ class _ScreenMainState extends State<ScreenMain> {
           actions: [
             // Search Button
             Hero(
-              tag: "SearchButtonToBox",
+              tag: "title search box",
               child: IconButton.outlined(
                 onPressed: () {
                   Navigator.push(

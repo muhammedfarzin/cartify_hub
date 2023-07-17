@@ -20,6 +20,7 @@ class SearchInputBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final FocusNode focusNode = FocusNode();
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return Container(
@@ -30,6 +31,7 @@ class SearchInputBox extends StatelessWidget {
       ),
       child: TextFormField(
         controller: controller,
+        focusNode: focusNode,
         autofocus: autoFocus,
         onFieldSubmitted: onSubmitted,
         decoration: decoration ??
@@ -41,6 +43,7 @@ class SearchInputBox extends StatelessWidget {
               suffixIcon: IconButton(
                 onPressed: () {
                   controller.clear();
+                  focusNode.requestFocus();
                 },
                 icon: const Icon(
                   Icons.clear,

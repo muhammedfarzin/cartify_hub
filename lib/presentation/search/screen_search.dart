@@ -1,3 +1,4 @@
+import 'package:cartify_hub/presentation/cart/screen_cart.dart';
 import 'package:cartify_hub/presentation/constants/asset_images.dart';
 import 'package:cartify_hub/presentation/constants/dummy_data.dart';
 import 'package:cartify_hub/presentation/search/widgets/search_input_box.dart';
@@ -30,7 +31,7 @@ class _ScreenSearchState extends State<ScreenSearch> {
         child: AppBar(
           backgroundColor: colorScheme.inversePrimary,
           title: Hero(
-            tag: "SearchButtonToBox",
+            tag: "title search box",
             child: Material(
               color: Colors.transparent,
               child: AnimatedSize(
@@ -57,7 +58,14 @@ class _ScreenSearchState extends State<ScreenSearch> {
                 child: ScaleAnimatedWidget(
                   curve: Curves.elasticOut,
                   child: IconButton.outlined(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const ScreenCart(showAppBar: true),
+                          ));
+                    },
                     icon: const Icon(Icons.shopping_cart),
                   ),
                 ),
@@ -83,6 +91,7 @@ class _ScreenSearchState extends State<ScreenSearch> {
 
           // This widget will show when search data submit
           secondWidget: ListView.builder(
+            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
             itemCount: DummyData.topListingList.length,
             itemBuilder: (context, index) {
               final Product item = DummyData.topListingList[index];
