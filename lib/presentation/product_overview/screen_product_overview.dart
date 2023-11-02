@@ -143,6 +143,7 @@ class ScreenProductOverview extends StatelessWidget {
                       style: textTheme.titleMedium,
                     ),
 
+                    // Ratings
                     Row(
                       children: [
                         // Rating Bar
