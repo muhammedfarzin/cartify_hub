@@ -37,10 +37,11 @@ class ScreenProductOverview extends StatelessWidget {
               IconButton.outlined(
                 onPressed: () {
                   Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ScreenSearch(),
-                      ));
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ScreenSearch(),
+                    ),
+                  );
                 },
                 icon: const Icon(Icons.search),
               ),
@@ -49,10 +50,11 @@ class ScreenProductOverview extends StatelessWidget {
               IconButton.outlined(
                 onPressed: () {
                   Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ScreenFavorite(),
-                      ));
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ScreenFavorite(),
+                    ),
+                  );
                 },
                 icon: const Icon(Icons.favorite),
               ),
@@ -67,10 +69,11 @@ class ScreenProductOverview extends StatelessWidget {
               IconButton.outlined(
                 onPressed: () {
                   Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ScreenFavorite(),
-                      ));
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ScreenFavorite(),
+                    ),
+                  );
                 },
                 icon: Icon(IconConstants.cart),
               ),
