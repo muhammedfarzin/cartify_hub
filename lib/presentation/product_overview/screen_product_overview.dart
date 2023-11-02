@@ -4,6 +4,7 @@ import 'package:cartify_hub/presentation/constants/icon_constants.dart';
 import 'package:cartify_hub/presentation/constants/widget_constants.dart';
 import 'package:cartify_hub/presentation/favorite/screen_favorite.dart';
 import 'package:cartify_hub/presentation/search/screen_search.dart';
+import 'package:cartify_hub/presentation/widgets/icon_text_widget.dart';
 import 'package:cartify_hub/presentation/widgets/price_discount_widget.dart';
 import 'package:cartify_hub/presentation/widgets/shipping_fee_widget.dart';
 import 'package:flutter/material.dart';
@@ -90,6 +91,7 @@ class ScreenProductOverview extends StatelessWidget {
                   borderRadius: BorderRadius.circular(25),
                 ),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // Product Images
                     Padding(
@@ -179,6 +181,7 @@ class ScreenProductOverview extends StatelessWidget {
                           color: colorScheme.inversePrimary.withOpacity(0.25),
                           borderRadius: BorderRadius.circular(10)),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           PriceDiscountWidget(
                             price: productData.price,
@@ -190,8 +193,63 @@ class ScreenProductOverview extends StatelessWidget {
                               deliveryCharge: productData.deliveryCharge),
                         ],
                       ),
-                    )
-                    // End of Product Details
+                    ),
+
+                    WidgetConstants.height10,
+
+                    // Return Details, cancellation, etc Details
+                    Container(
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.all(4),
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: colorScheme.inversePrimary.withOpacity(0.25),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Container(
+                          constraints: const BoxConstraints(minWidth: 350),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              IconTextWidget(
+                                icon: Icon(
+                                  Icons.remove_shopping_cart,
+                                  size: 27,
+                                  color: colorScheme.primary,
+                                ),
+                                text: 'Cancellation upto 24 hrs',
+                              ),
+                              IconTextWidget(
+                                icon: Icon(
+                                  Icons.keyboard_return,
+                                  size: 27,
+                                  color: colorScheme.primary,
+                                ),
+                                text: '7 days returns',
+                              ),
+                              IconTextWidget(
+                                icon: Icon(
+                                  Icons.monetization_on,
+                                  size: 27,
+                                  color: colorScheme.primary,
+                                ),
+                                text: 'Cash on delivery available',
+                              ),
+                              IconTextWidget(
+                                icon: Icon(
+                                  Icons.remove_shopping_cart,
+                                  size: 27,
+                                  color: colorScheme.primary,
+                                ),
+                                text: 'Cancellation upto 24 hrs',
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
