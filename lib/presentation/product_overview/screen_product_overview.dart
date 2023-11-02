@@ -1,6 +1,7 @@
 import 'package:cartify_hub/functions/currency_format.dart';
 import 'package:cartify_hub/presentation/constants/dummy_data.dart';
 import 'package:cartify_hub/presentation/constants/icon_constants.dart';
+import 'package:cartify_hub/presentation/constants/widget_constants.dart';
 import 'package:cartify_hub/presentation/favorite/screen_favorite.dart';
 import 'package:cartify_hub/presentation/search/screen_search.dart';
 import 'package:cartify_hub/presentation/widgets/price_discount_widget.dart';
@@ -169,15 +170,27 @@ class ScreenProductOverview extends StatelessWidget {
                       ],
                     ),
 
+                    WidgetConstants.height10,
+
                     // Price Details
-                    PriceDiscountWidget(
-                      price: productData.price,
-                      offerRate: productData.offerRate,
-                      priceFontSize: 16,
-                      offerRateFontSize: 25,
-                    ),
-                    ShippingFeeWidget(
-                        deliveryCharge: productData.deliveryCharge),
+                    Container(
+                      padding: const EdgeInsets.all(8.0),
+                      decoration: BoxDecoration(
+                          color: colorScheme.inversePrimary.withOpacity(0.25),
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Column(
+                        children: [
+                          PriceDiscountWidget(
+                            price: productData.price,
+                            offerRate: productData.offerRate,
+                            priceFontSize: 16,
+                            offerRateFontSize: 25,
+                          ),
+                          ShippingFeeWidget(
+                              deliveryCharge: productData.deliveryCharge),
+                        ],
+                      ),
+                    )
                     // End of Product Details
                   ],
                 ),

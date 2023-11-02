@@ -7,6 +7,10 @@ class WidgetConstants {
     height: 5,
   );
 
+  static const Widget height10 = SizedBox(
+    height: 10,
+  );
+
   // Width Constants
   static const Widget width5 = SizedBox(
     width: 5,
