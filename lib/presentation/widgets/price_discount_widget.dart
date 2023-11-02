@@ -8,11 +8,19 @@ class PriceDiscountWidget extends StatelessWidget {
     required this.price,
     required this.offerRate,
     this.showPercentage = true,
+    this.priceFontSize = 12,
+    this.offerRateFontSize,
+    this.priceTextStyle,
+    this.offerRateTextStyle,
   });
 
   final double price;
   final double offerRate;
   final bool showPercentage;
+  final double priceFontSize;
+  final double? offerRateFontSize;
+  final TextStyle? priceTextStyle;
+  final TextStyle? offerRateTextStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -22,22 +30,24 @@ class PriceDiscountWidget extends StatelessWidget {
         // Actual Price
         Text(
           CurrencyFormat.formatCurrency(price),
-          style: TextStyle(
-            fontSize: 12,
-            decoration: TextDecoration.lineThrough,
-            color: Colors.grey.shade700,
-            decorationColor: Colors.grey.shade700,
-          ),
+          style: priceTextStyle ??
+              TextStyle(
+                fontSize: priceFontSize,
+                decoration: TextDecoration.lineThrough,
+                color: Colors.grey.shade700,
+                decorationColor: Colors.grey.shade700,
+              ),
         ),
         WidgetConstants.width5,
 
         // Offer Price
         Text(
           CurrencyFormat.formatCurrency(offerRate),
-          style: Theme.of(context)
-              .textTheme
-              .titleMedium
-              ?.copyWith(color: colorScheme.primary),
+          style: offerRateTextStyle ??
+              Theme.of(context).textTheme.titleMedium?.copyWith(
+                    color: colorScheme.primary,
+                    fontSize: offerRateFontSize,
+                  ),
         ),
         WidgetConstants.width10,
 
